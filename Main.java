@@ -1,6 +1,7 @@
 import company.beans.Person;
 import company.exceptions.InvalidAgeException;
 import company.implementations.EmailMessenger;
+import company.utils.MathUtils;
 
 public class Main {
   public static void main(String[] args) {
@@ -20,7 +21,11 @@ public class Main {
     }
 
     EmailMessenger emailMessenger = new EmailMessenger();
-    emailMessenger.sendMessage("Hello, world!");
+
+    Integer i = MathUtils.add(4, 6);
+    System.out.println(i);
+
+    emailMessenger.sendMessage("Sum of two numbers is: " + i.toString());
 
   }
 }
