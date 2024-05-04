@@ -22,10 +22,26 @@ public class Main {
 
     EmailMessenger emailMessenger = new EmailMessenger();
 
-    Integer i = MathUtils.add(4, 6);
-    System.out.println(i);
+    Integer j = MathUtils.add(4, 6);
+    System.out.println(j);
 
-    emailMessenger.sendMessage("Sum of two numbers is: " + i.toString());
+    emailMessenger.sendMessage("Sum of two numbers is: " + j.toString());
+
+    Person[] people = new Person[5];
+
+    final Integer b = 10;
+
+    for (int i = 0; i < 5; i++) {
+      try {
+        people[i] = new Person("Random Person number: " + Integer.toString(i), 12 * (i + 1));
+      } catch (InvalidAgeException e) {
+        System.out.println(e.getMessage());
+      }
+    }
+
+    for (Person person : people) {
+      emailMessenger.sendMessage(person.getName() + " calculated number is " + person.getAge() * b);
+    }
 
   }
 }
